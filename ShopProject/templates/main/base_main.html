@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <title>Main page</title>
+</head>
+<body>
+    <div class="body">
+        <div class="header text">
+            <div class="header-items">
+                <img src="{% static 'main/img/shop.png' %}" alt="" height="100" width="100">
+            </div>
+            <div class="header-items">
+                <div class="search-panel">
+                    <input type="text" placeholder="search" class="search">
+                </div>
+                <div class="search-panel">
+                    <button class="search">
+                        <img src="{% static 'main/img/search.png' %}" alt="" height="20" width="20">
+                    </button>
+                </div>
+            </div>
+            <div class="header-items">
+                <button class="button-enter"><a href="entry/">Entry</a></button>
+                <button class="button-enter"><a href="registration/">Registration</a></button>
+            </div>
+        </div>
+        <div class="menu text">
+            <div class="menu menu-items"><button class="button-menu"><a href="#">About us</a></button></div>
+            <div class="menu menu-items"><button class="button-menu"><a href="#">Blog</a></button></div>
+            <div class="menu menu-items"><button class="button-menu"><a href="bboard/">Billboard</a></button></div>
+            <div class="menu menu-items"><button class="button-menu"><a href="#">Contacts</a></button></div>
+        </div>
+        {% block content %}
+        <div class="content text">
+            <div class="content content-items">About us<br></div>
+            <div class="content content-items">Billboard<br></div>
+            <div class="content content-items">Blog<br></div>
+            <div class="content content-items">Contacts<br></div>
+        </div>
+        {% endblock %}
+        <div class="bottom">bottom</div>
+    </div>
+</body>
+</html>
