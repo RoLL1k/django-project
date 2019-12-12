@@ -1,0 +1,26 @@
+{% extends 'blog/base_blog.html' %}
+
+
+
+{% block title %}
+	{{ post.title }} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+	<h1 class="mt-5">
+		{{ post.title }}
+	</h1>
+	<p>{{ post.body }}</p>
+	
+	<div class="card mt-5">
+		<div class="card-header">
+			<b>Comments:</b>
+		</div>
+	</div>
+	{% for comment in post.comments.all %}
+		{% include 'blog/includes/comment_card_template.html' %}
+	{% endfor %}
+	<hr>
+	<a href="comment/" class="btn btn-primary">Leave comment</a>
+{% endblock %}

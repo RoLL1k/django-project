@@ -1,0 +1,24 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}w
+	Comment - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <h3>Leave comment:</h3>
+    <form action="#" method = "post">
+        {% csrf_token %}
+        {% 	for field in form %}
+            <div class="form-group">
+                {% if field.error %}
+                    <div class="alert alert-danger">
+                        {{ field.error }}
+                    </div>
+                {% endif %}
+                {{ filed.label }}
+                {{ field }}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Comment</button>
+    </form>
+{% endblock %}

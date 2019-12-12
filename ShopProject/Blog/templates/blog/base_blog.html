@@ -1,0 +1,32 @@
+{% extends 'blog/base.html' %}
+
+{% block search %}
+	<form class="form-inline my-2 my-lg-0" action="{% url 'posts_list_url' %}">
+		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+		name="search">
+		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+	</form>
+{% endblock %}
+
+{% block blog %}
+	<li class="nav-item active">
+		<a class="nav-link" href="{% url 'posts_list_url' %}">Posts</a>
+	</li>
+	<li class="nav-item active">
+		<a class="nav-link" href="{% url 'tags_list_url' %}">Tags</a>
+	</li>
+{% endblock %}
+
+{% block admin-panel %}
+	<div class="btn-dropdown dropleft">
+		<button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Create
+		</button>
+		<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			<a class="dropdown-item" href="{% url 'post_create_url' %}">Post</a>
+			<a class="dropdown-item" href="{% url 'tag_create_url' %}">Tag</a>
+		</div>
+	</div>
+	<a href="{{ admin_object.get_update_url }}" class="btn btn-outline-info edit" style="{% if detail %}display: block;{% endif %}">Edit</a>
+	<a href="{{ admin_object.get_delete_url }}" class="btn btn-outline-danger delete" style="{% if detail %}display: block;{% endif %}">Delete</a>
+{% endblock %}
